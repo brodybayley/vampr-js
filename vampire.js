@@ -10,7 +10,8 @@ class Vampire {
 
   // Adds the vampire as an offspring of this vampire
   addOffspring(vampire) {
-
+    this.offspring.push(vampire);
+    vampire.creator = this;
   }
 
   // Returns the total number of vampires created by that vampire
@@ -39,6 +40,17 @@ class Vampire {
 
   }
 }
+
+const original = new Vampire("Original", 1928);
+
+const ansel = new Vampire("Ansel", 1935);
+const bart = new Vampire("Bart", 1936);
+
+const elgort = new Vampire("Elgort", 1989);
+const sarah = new Vampire("Sara", 1990);
+
+const andrew = new Vampire("Andrew", 2020);
+
 
 module.exports = Vampire;
 
