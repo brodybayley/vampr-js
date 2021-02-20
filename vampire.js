@@ -33,6 +33,49 @@ class Vampire {
   // Returns true if this vampire is more senior than the other vampire. (Who is closer to the original vampire)
   isMoreSeniorThan(vampire) {
     return this.numberOfVampiresFromOriginal < vampire.numberOfVampiresFromOriginal;
+<<<<<<< HEAD
+=======
+  }
+
+  /** Tree traversal methods **/
+
+  // Returns the vampire object with that name, or null if no vampire exists with that name
+  vampireWithName(name) {
+    if (this.name === name) {
+      return this;
+    }
+    for (const baby of this.offspring) {
+      let vampire = baby.vampireWithName(name);
+      if (vampire !== null) {
+        return vampire;
+      }
+    }
+    return null;
+  }
+
+  // Returns the total number of vampires that exist
+  get totalDescendents() {
+    let totalCount = 0;
+
+    for (const vampire of this.offspring) {
+      totalCount += vampire.totalDescendents + 1;
+    }
+    return totalCount;
+  }
+
+  // Returns an array of all the vampires that were converted after 1980
+  get allMillennialVampires() {
+    let vampireArray = [];
+    if (this.yearConverted > 1980) {
+      vampireArray.push(this);
+    }
+
+    for (const baby of this.offspring) {
+      const vampiresConvertedAfter1980 = baby.allMillennialVampires;
+      vampireArray = vampireArray.concat(vampiresConvertedAfter1980);
+    }
+    return vampireArray;
+>>>>>>> traversal
   }
 
 
@@ -48,6 +91,18 @@ class Vampire {
   }
 }
 
+<<<<<<< HEAD
+=======
+const original = new Vampire("Original", 1928);
+
+const ansel = new Vampire("Ansel", 1935);
+const bart = new Vampire("Bart", 1936);
+
+const elgort = new Vampire("Elgort", 1989);
+const sara = new Vampire("Sara", 1990);
+
+const andrew = new Vampire("Andrew", 2020);
+
+>>>>>>> traversal
 
 module.exports = Vampire;
-
