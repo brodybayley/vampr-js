@@ -99,5 +99,3 @@ const andrew = new Vampire("Andrew", 2020);
 
 
 module.exports = Vampire;
-
-console.log(original.vampireWithName('Sara'));
